@@ -10,9 +10,16 @@ import { AdminReg } from "./Pages/AdminReg"
 import { AdminLogin } from "./Pages/AdminLogin";
 import { AddProduct } from "./Pages/AddProduct";
 import { UpdateProduct } from "./Pages/UpdateProduct";
+import { useEffect } from "react";
 
 
 const App =()=>{
+      useEffect(() => {
+        const baseURL = import.meta.env.VITE_API_BASE_URL_ADMIN || "http://localhost:3000/api/v1/admin"
+        fetch(`${baseURL}/`)
+      }, [])
+      
+
      const queryClient = new QueryClient();
      const router = createBrowserRouter([
       {
